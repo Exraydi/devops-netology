@@ -4,6 +4,9 @@ Second line
 
 Third line
 
+Fourth line 
+
+
 
 **/.terraform/* - Игнорировать все файлы в директории .terraform.
 Причем эта директория может быть на любом уровне вложенности
