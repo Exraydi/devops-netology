@@ -1,0 +1,18 @@
+node("ansible_docker"){
+    stage("Git checkout"){
+        git credentialsId: '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', url: 'https://github.com/Exraydi/jenkins.git'
+    }
+    stage("Check ssh key"){
+        secret_check=true
+    }
+    stage("Run playbook"){
+        if (secret_check){
+            sh 'ansible-galaxy install -r requirements.yml'
+            sh 'ansible-playbook site.yml -i inventory/prod.yml'
+        }
+        else{
+            echo 'no more keys'
+        }
+        
+    }
+}    
